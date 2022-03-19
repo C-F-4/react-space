@@ -1,7 +1,7 @@
 export const Tasklist = [
   {
     id: 'tid0',
-    title: 'Task 01',
+    title: 'Task 01 - Do this Do that Fire up',
   },
   {
     id: 'tid1',

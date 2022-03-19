@@ -15,13 +15,13 @@ const Tasks = () => {
 
   return (
     <>
-      <FrameBorder>
+      <FrameBorder classlist={'p-20'}>
         <Header title="Task Manager">
           <Button text="Add" classlist={'btn-primary'} onClick={handleAdd} />
         </Header>
         <p>Start adding tasks to see some magic happen :)</p>
         {Tasklist?.map((task) => (
-          <Task title={task.title} key={task.id} classlist={'mb-5'}></Task>
+          <Task title={task.title} key={task.id} classlist={'mb-10'}></Task>
         ))}
       </FrameBorder>
     </>

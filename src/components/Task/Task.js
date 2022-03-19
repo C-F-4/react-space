@@ -11,9 +11,7 @@ const Task = ({ title, classlist } = props) => {
 
   return (
     <>
-      <FrameBorder classlist={`${classlist} border-bottom`}>
-        <Header title={title} classlist="h3"></Header>
-      </FrameBorder>
+      <Header title={title} classlist={`h6 ${classlist}`}></Header>
     </>
   );
 };

@@ -8,9 +8,14 @@
 
   .text {
     margin: 0;
+    font-weight: 500;
   }
 
   &.h3 .text {
     font-size: $fs-larger;
+  }
+
+  &.h6 .text {
+    font-size: $fs-large;
   }
 }
