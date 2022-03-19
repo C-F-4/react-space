@@ -2,21 +2,23 @@ import React from 'react';
 import './Header.scss';
 import PropTypes from 'prop-types';
 
-const Header = ({ title, classlist } = props) => {
+const Header = ({ title, classlist, children } = props) => {
   return (
-    <header class={classlist}>
+    <header className={`cx-head ${classlist}`}>
       <h1>{title}</h1>
+      {children}
     </header>
   );
 };
 
-// Header.defaultProps = {
-//   title: 'Default Header in Use',
-// };
+Header.defaultProps = {
+  classlist: '',
+};
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
   classlist: PropTypes.string,
+  children: PropTypes.Element,
 };
 
 // CSS in js

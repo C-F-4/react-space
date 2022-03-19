@@ -1,3 +1,5 @@
-h1, p {
-  font-family: Lato;
+@import './variables.scss';
+
+body {
+  font-family: $font-primary;
 }

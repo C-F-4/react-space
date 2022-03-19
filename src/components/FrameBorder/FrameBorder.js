@@ -1,11 +1,11 @@
 import React from 'react';
-import './Button.scss';
+import './FrameBorder.scss';
 import PropTypes from 'prop-types';
 
-const Button = ({ text, classlist } = props) => {
+const Button = ({ classlist, children } = props) => {
   return (
     <>
-      <button className={`btn ${classlist}`}>{text}</button>
+      <div className={`bordered ${classlist}`}>{children}</div>
     </>
   );
 };
@@ -15,8 +15,8 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  text: PropTypes.string.isRequired,
   classlist: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 export default Button;

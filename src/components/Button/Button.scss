@@ -1,5 +1,27 @@
+@import './../../variables';
+
 .btn {
-  padding: 5px 10px;
+  padding: 7.5px 15px;
+  font-size: $fs-medium;
   outline: none;
   border: 2.5px solid #000;
+  border-radius: $br-regular;
+  transition: all 0.5ms;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #000;
+    color: white;
+  }
+
+  &-primary {
+    border-color: rgb(80, 26, 80);
+    background-color: rgb(80, 26, 80);
+    color: white;
+
+    &:hover {
+      background-color: white;
+      color: rgb(80, 26, 80);
+    }
+  }
 }
