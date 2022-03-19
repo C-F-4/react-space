@@ -2,10 +2,12 @@ import React from 'react';
 import './Button.scss';
 import PropTypes from 'prop-types';
 
-const Button = ({ text, classlist } = props) => {
+const Button = ({ text, classlist, onClick } = props) => {
   return (
     <>
-      <button className={`btn ${classlist}`}>{text}</button>
+      <button className={`btn ${classlist}`} onClick={onClick}>
+        {text}
+      </button>
     </>
   );
 };
@@ -17,6 +19,7 @@ Button.defaultProps = {
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   classlist: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default Button;

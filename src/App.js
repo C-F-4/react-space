@@ -5,25 +5,18 @@ import Header from './components/Header/Header.js';
 import Button from './components/Button/Button.js';
 
 export default function App() {
-  // const name = 'Bingo';
-  // const hasName = true;
+  const handleAdd = () => {
+    console.log('Add');
+  };
+
   return (
     <div className="app">
       <FrameBorder>
         <Header title="Head">
-          <Button text="Add" classlist={'btn-primary'} />
+          <Button text="Add" classlist={'btn-primary'} onClick={handleAdd} />
         </Header>
         <p>Start editing to see some magic happen :)</p>
       </FrameBorder>
-      {/* <h1>
-        {hasName ? (
-          <>
-            Hello {name} {1 + 1}!
-          </>
-        ) : (
-          `Hello World!`
-        )}
-      </h1> */}
     </div>
   );
 }
