@@ -1,8 +1,13 @@
+@import './../../common';
 @import './../../variables';
 
-.bordered {
-  margin: 2.5px;
-  border: 2.5px solid;
+.frame {
+  border: 1.5px solid #333;
   padding: 5px;
   border-radius: $br-regular;
+
+  &.border-bottom {
+    border: 0;
+    border-bottom: 1.5px solid #333;
+  }
 }

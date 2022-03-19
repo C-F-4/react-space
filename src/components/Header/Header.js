@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Header = ({ title, classlist, children } = props) => {
   return (
     <header className={`cx-head ${classlist}`}>
-      <h1>{title}</h1>
+      <h1 className="text">{title}</h1>
       {children}
     </header>
   );

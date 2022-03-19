@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Button = ({ classlist, children } = props) => {
   return (
     <>
-      <div className={`bordered ${classlist}`}>{children}</div>
+      <div className={`frame ${classlist}`}>{children}</div>
     </>
   );
 };

@@ -1,9 +1,16 @@
+@import './../../common';
+@import './../../variables';
+
 .cx-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  h1 {
+  .text {
     margin: 0;
+  }
+
+  &.h3 .text {
+    font-size: $fs-larger;
   }
 }
