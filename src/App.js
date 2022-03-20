@@ -7,21 +7,17 @@ import { uuid } from './utils/lib';
 export default function App() {
   const [tasks, setTasks] = useState([]);
 
-  // const apiBase = `https://json-server-dwgyal--3000.local.webcontainer.io/TM-hxmxu9`;
-  // const tasksBase = `-tasks`;
-  // const isServerUp = true;
+  const apiBase = `https://my-json-server.typicode.com/C-F-4/react-space`;
+  const tasksBase = `/tasks`;
 
-  // useEffect(() => {
-  //   // Test Loading Tasks
-  //   const fetchTasks = async () => {
-  //     const res = await fetch(`${apiBase}${tasksBase}`);
-  //     const data = res.json();
-  //     console.log(res, data);
-  //   };
-  //   if (isServerUp) {
-  //     fetchTasks();
-  //   }
-  // }, []);
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const res = await fetch(`${apiBase}${tasksBase}`);
+      const data = res.json();
+      console.log(res, data);
+    };
+    fetchTasks();
+  }, []);
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
