@@ -5,6 +5,11 @@ body {
   font-family: $font-primary;
 }
 
+.app {
+  width: 480px;
+  margin: 0 auto;
+}
+
 .online-status {
   display: block;
   position: fixed;
