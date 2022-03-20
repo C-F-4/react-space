@@ -14,18 +14,17 @@ const TaskForm = ({ task, onCreate, onUpdate } = props) => {
       console.debug('Error');
       return;
     }
-    if (id) {
-      onCreate({
-        title: text,
-        date,
-        reminder,
-      });
+    const newTask = {
+      title: text,
+      date,
+      reminder,
+    };
+    if (!id) {
+      onCreate({ ...newTask });
     } else {
       onUpdate({
         id,
-        title: text,
-        date,
-        reminder,
+        ...newTask,
       });
     }
     clearForm();

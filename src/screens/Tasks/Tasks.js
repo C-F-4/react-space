@@ -20,7 +20,6 @@ const Tasks = ({ tasklist, onAdd, onUpdate, onDelete, onToggle } = props) => {
   const editTask = (id) => {
     const task = tasks.find((task) => task.id === id);
     if (task) {
-      console.log(task);
       setSelectedTask({ ...task });
       if (!showAddForm) {
         setShowAddForm(true);
@@ -42,8 +41,14 @@ const Tasks = ({ tasklist, onAdd, onUpdate, onDelete, onToggle } = props) => {
           <div className={`mt-10`}>
             <TaskForm
               task={selectedTask}
-              onCreate={onAdd}
-              onUpdate={onUpdate}
+              onCreate={(data) => {
+                onAdd(data);
+                toggleAddForm();
+              }}
+              onUpdate={(data) => {
+                onUpdate(data);
+                toggleAddForm();
+              }}
             />
           </div>
         )}
