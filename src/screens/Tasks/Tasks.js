@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Tasks.scss';
 import FrameBorder from './../../components/FrameBorder/FrameBorder';
 import Header from './../../components/Header/Header';
 import Button from './../../components/Button/Button';
 import Task from './../../components/Task/Task';
-import { Tasklist } from './../../mock-data/tasks';
 
-const Tasks = () => {
+const Tasks = ({ tasklist, onDelete } = props) => {
+  const [tasks, setTasks] = useState(tasklist);
+
   const handleAdd = () => {
     console.log('Add');
   };
-
-  console.log(Tasklist);
 
   return (
     <>
@@ -20,8 +19,15 @@ const Tasks = () => {
           <Button text="Add" classlist={'btn-primary'} onClick={handleAdd} />
         </Header>
         <p>Start adding tasks to see some magic happen :)</p>
-        {Tasklist?.map((task) => (
-          <Task title={task.title} key={task.id} classlist={'mb-10'}></Task>
+        {tasks?.map((task) => (
+          <Task
+            id={task.id}
+            title={task.title}
+            date={task.date}
+            key={task.id}
+            classlist={'mb-10'}
+            onDelete={onDelete}
+          ></Task>
         ))}
       </FrameBorder>
     </>

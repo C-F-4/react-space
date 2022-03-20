@@ -15,6 +15,12 @@
     color: white;
   }
 
+  &-slim {
+    padding: 5px 7.5px;
+    border-width: 1.5px;
+    font-size: $fs-smaller;
+  }
+
   &-primary {
     border-color: rgb(80, 26, 80);
     background-color: rgb(80, 26, 80);
@@ -24,5 +30,22 @@
       background-color: white;
       color: rgb(80, 26, 80);
     }
+  }
+
+  &-delete {
+    border-color: rgb(233, 8, 8);
+    background-color: rgb(233, 8, 8);
+    color: white;
+
+    &:hover {
+      background-color: white;
+      color: rgb(233, 8, 8);
+    }
+  }
+
+  &-icon {
+    border: 0;
+    background-color: transparent;
+    color: rgb(233, 8, 8);
   }
 }
