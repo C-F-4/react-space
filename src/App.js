@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './style.scss';
 import Tasks from './screens/Tasks/Tasks';
 import { Tasklist } from './mock-data/tasks';
-import { uuid } from './helpers/lib';
+import { uuid } from './utils/lib';
 
 export default function App() {
   const [tasks, setTasks] = useState(Tasklist);

@@ -9,14 +9,23 @@ import AddTask from './../../components/AddTask/AddTask';
 const Tasks = ({ tasklist, onAdd, onDelete, onToggle } = props) => {
   // const [tasks, setTasks] = useState(tasklist);
   const tasks = tasklist;
+  const [showAddForm, setShowAddForm] = useState(false);
+
+  const toggleAddForm = () => {
+    setShowAddForm(!showAddForm);
+  };
 
   return (
     <>
       <FrameBorder classlist={'p-20'}>
-        <Header title="Task Manager" classlist={'mb-20'}>
-          <Button text="Add" classlist={'btn-primary'} />
+        <Header title="Task Manager" classlist={'mb-10'}>
+          <Button
+            text={showAddForm ? 'Cancel' : 'Add'}
+            classlist={'btn-primary'}
+            onClick={toggleAddForm}
+          />
         </Header>
-        <div className={'mb-20'}>
+        <div className={`mb-20 ${showAddForm ? '' : 'd-none'}`}>
           <AddTask onCreate={onAdd} />
         </div>
         {tasks?.length ? (
