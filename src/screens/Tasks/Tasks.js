@@ -4,21 +4,21 @@ import FrameBorder from './../../components/FrameBorder/FrameBorder';
 import Header from './../../components/Header/Header';
 import Button from './../../components/Button/Button';
 import Task from './../../components/Task/Task';
+import AddTask from './../../components/AddTask/AddTask';
 
 const Tasks = ({ tasklist, onAdd, onDelete, onToggle } = props) => {
   // const [tasks, setTasks] = useState(tasklist);
   const tasks = tasklist;
 
-  const handleAdd = () => {
-    onAdd();
-  };
-
   return (
     <>
       <FrameBorder classlist={'p-20'}>
         <Header title="Task Manager" classlist={'mb-20'}>
-          <Button text="Add" classlist={'btn-primary'} onClick={handleAdd} />
+          <Button text="Add" classlist={'btn-primary'} />
         </Header>
+        <div className={'mb-20'}>
+          <AddTask onCreate={onAdd} />
+        </div>
         {tasks?.length ? (
           tasks?.map((task) => (
             <Task

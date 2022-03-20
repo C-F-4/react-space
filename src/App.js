@@ -10,13 +10,12 @@ export default function App() {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  const addTask = () => {
+  const addTask = (task) => {
     setTasks([
       ...tasks,
       {
         id: `tid${tasks.length}`,
-        title: `Task 0${tasks.length + 1}`,
-        date: 'Feb 19th at 12:30pm',
+        ...task,
       },
     ]);
   };
