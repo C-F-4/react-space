@@ -9,6 +9,10 @@ const AddTask = ({ onCreate } = props) => {
 
   const handleAdd = (e) => {
     e.preventDefault();
+    if (!text || !date) {
+      console.debug('Error');
+      return;
+    }
     onCreate({
       title: text,
       date,
@@ -64,7 +68,7 @@ const AddTask = ({ onCreate } = props) => {
         <div className="form-btn-group">
           <Button
             text="Create"
-            classlist={'btn-primary'}
+            classlist={'btn-primary btn-full'}
             onClick={handleAdd}
           ></Button>
         </div>
