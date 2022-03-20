@@ -24,7 +24,7 @@ const AddTask = ({ onCreate } = props) => {
   const clearForm = () => {
     setText('');
     setDate('');
-    setReminder('');
+    setReminder(false);
   };
 
   return (
@@ -61,7 +61,7 @@ const AddTask = ({ onCreate } = props) => {
           <input
             type="checkbox"
             className="form-input"
-            value={reminder}
+            checked={reminder}
             onChange={(e) => setReminder(e.currentTarget.checked)}
           />
         </div>

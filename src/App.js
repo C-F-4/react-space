@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import './style.scss';
 import Tasks from './screens/Tasks/Tasks';
-import { Tasklist } from './mock-data/tasks';
 import { uuid } from './utils/lib';
 
 export default function App() {
-  const [tasks, setTasks] = useState(Tasklist);
+  const [tasks, setTasks] = useState([]);
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));

@@ -28,11 +28,11 @@ const Task = ({
   return (
     <>
       <FrameBorder
-        classlist={`mb-10 p-10 border-none br-none bg-secondary ${
+        classlist={`p-10 border-none br-none bg-secondary ${classlist} ${
           reminder ? 'border-left border-success' : ''
         }`}
       >
-        <Header title={title} classlist={`h6 ${classlist}`}>
+        <Header title={title} classlist={`h6 mb-5`}>
           <Button
             classlist="btn-slim btn-delete"
             text={'Delete'}

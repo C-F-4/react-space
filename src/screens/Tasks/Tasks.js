@@ -18,32 +18,34 @@ const Tasks = ({ tasklist, onAdd, onDelete, onToggle } = props) => {
   return (
     <>
       <FrameBorder classlist={'p-20'}>
-        <Header title="Task Manager" classlist={'mb-10'}>
+        <Header title="Task Manager">
           <Button
             text={showAddForm ? 'Cancel' : 'Add'}
             classlist={'btn-primary'}
             onClick={toggleAddForm}
           />
         </Header>
-        <div className={`mb-20 ${showAddForm ? '' : 'd-none'}`}>
+        <div className={`mt-10 ${showAddForm ? '' : 'd-none'}`}>
           <AddTask onCreate={onAdd} />
         </div>
-        {tasks?.length ? (
-          tasks?.map((task) => (
-            <Task
-              id={task.id}
-              title={task.title}
-              date={task.date}
-              reminder={task.reminder}
-              key={task.id}
-              classlist={'mb-10'}
-              onToggle={onToggle}
-              onDelete={onDelete}
-            ></Task>
-          ))
-        ) : (
-          <p>Start adding tasks to see some magic happen :)</p>
-        )}
+        <div className={`mt-10`}>
+          {tasks?.length ? (
+            tasks?.map((task) => (
+              <Task
+                id={task.id}
+                title={task.title}
+                date={task.date}
+                reminder={task.reminder}
+                key={task.id}
+                classlist={'mt-10'}
+                onToggle={onToggle}
+                onDelete={onDelete}
+              ></Task>
+            ))
+          ) : (
+            <p>Start adding tasks to see some magic happen :)</p>
+          )}
+        </div>
       </FrameBorder>
     </>
   );
