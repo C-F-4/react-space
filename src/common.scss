@@ -1,3 +1,5 @@
+@import './variables';
+
 /** Margins */
 .m-0 {
   margin: 0px !important;
@@ -32,10 +34,26 @@
   padding: 20px !important;
 }
 
+.br-none {
+  border-radius: 0;
+}
+
 .border-none {
-  border: 0 !important;
+  border-width: 0 !important;
 }
 
 .bg-secondary {
   background-color: #eee;
+}
+
+.border-success {
+  border-color: $border-success !important;
+}
+
+.hover {
+  &:hover {
+    cursor: pointer;
+    -moz-user-select: none;
+    user-select: none;
+  }
 }

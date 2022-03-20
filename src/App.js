@@ -21,9 +21,28 @@ export default function App() {
     ]);
   };
 
+  const toggleReminder = (id) => {
+    console.debug('Tog');
+    setTasks(
+      tasks.map((task) =>
+        task.id === id
+          ? {
+              ...task,
+              reminder: !task.reminder,
+            }
+          : task
+      )
+    );
+  };
+
   return (
     <div className="app">
-      <Tasks tasklist={tasks} onAdd={addTask} onDelete={deleteTask}></Tasks>
+      <Tasks
+        tasklist={tasks}
+        onAdd={addTask}
+        onDelete={deleteTask}
+        onToggle={toggleReminder}
+      ></Tasks>
     </div>
   );
 }

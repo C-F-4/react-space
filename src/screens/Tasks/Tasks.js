@@ -5,7 +5,7 @@ import Header from './../../components/Header/Header';
 import Button from './../../components/Button/Button';
 import Task from './../../components/Task/Task';
 
-const Tasks = ({ tasklist, onAdd, onDelete } = props) => {
+const Tasks = ({ tasklist, onAdd, onDelete, onToggle } = props) => {
   // const [tasks, setTasks] = useState(tasklist);
   const tasks = tasklist;
 
@@ -25,8 +25,10 @@ const Tasks = ({ tasklist, onAdd, onDelete } = props) => {
               id={task.id}
               title={task.title}
               date={task.date}
+              reminder={task.reminder}
               key={task.id}
               classlist={'mb-10'}
+              onToggle={onToggle}
               onDelete={onDelete}
             ></Task>
           ))

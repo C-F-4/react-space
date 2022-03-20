@@ -18,7 +18,7 @@ Header.defaultProps = {
 Header.propTypes = {
   title: PropTypes.string.isRequired,
   classlist: PropTypes.string,
-  children: PropTypes.Element,
+  children: PropTypes.node,
 };
 
 // CSS in js

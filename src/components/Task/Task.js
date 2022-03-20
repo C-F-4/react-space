@@ -1,11 +1,18 @@
 import React from 'react';
 import './Task.scss';
-import { FaTrash } from 'react-icons/fa';
 import FrameBorder from './../FrameBorder/FrameBorder';
 import Header from './../Header/Header';
 import Button from './../Button/Button';
 
-const Task = ({ id, title, date, classlist, onDelete } = props) => {
+const Task = ({
+  id,
+  title,
+  date,
+  reminder,
+  classlist,
+  onDelete,
+  onToggle,
+} = props) => {
   const handleEdit = () => {
     console.log('title');
   };
@@ -14,9 +21,17 @@ const Task = ({ id, title, date, classlist, onDelete } = props) => {
     onDelete(id);
   };
 
+  const handleToggle = () => {
+    onToggle(id);
+  };
+
   return (
     <>
-      <FrameBorder classlist={'mb-10 p-10 border-none bg-secondary'}>
+      <FrameBorder
+        classlist={`mb-10 p-10 border-none br-none bg-secondary ${
+          reminder ? 'border-left border-success' : ''
+        }`}
+      >
         <Header title={title} classlist={`h6 ${classlist}`}>
           <Button
             classlist="btn-slim btn-delete"
@@ -24,7 +39,9 @@ const Task = ({ id, title, date, classlist, onDelete } = props) => {
             onClick={handleDelete}
           />
         </Header>
-        <p className={'m-0'}>{date}</p>
+        <p className={'hover m-0'} onDoubleClick={handleToggle}>
+          {date}
+        </p>
       </FrameBorder>
     </>
   );

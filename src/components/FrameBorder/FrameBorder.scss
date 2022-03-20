@@ -1,13 +1,26 @@
-@import './../../common';
 @import './../../variables';
+@import './../../common';
 
 .frame {
-  border: 1.5px solid #444;
+  border-width: 1.5px;
+  border-style: solid;
+  border-color: #444;
   padding: 5px;
   border-radius: $br-regular;
 
   &.border-bottom {
-    border: 0;
-    border-bottom: 1.5px solid #444;
+    border-bottom-width: 1.5px !important;
+  }
+
+  &.border-left {
+    border-left-width: 1.5px !important;
+  }
+
+  &.border-right {
+    border-right-width: 1.5px !important;
+  }
+
+  &.border-top {
+    border-right-width: 1.5px !important;
   }
 }

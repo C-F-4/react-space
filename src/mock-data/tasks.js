@@ -9,6 +9,6 @@ export const Tasklist = [
     id: 'tid1',
     title: 'Task 02',
     date: 'Feb 19th at 12:30pm',
-    reminder: true,
+    reminder: false,
   },
 ];
