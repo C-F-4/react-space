@@ -9,15 +9,24 @@ export default function App() {
 
   const apiBase = `https://my-json-server.typicode.com/C-F-4/react-space`;
   const tasksBase = `/tasks`;
+  const isServerUp = true;
 
   useEffect(() => {
-    const fetchTasks = async () => {
-      const res = await fetch(`${apiBase}${tasksBase}`);
-      const data = res.json();
-      console.log(res, data);
+    const loadTasksFromServer = async () => {
+      const tasklist = await fetchTasks();
+      setTasks(tasklist);
     };
-    fetchTasks();
+    loadTasksFromServer();
   }, []);
+
+  const fetchTasks = async () => {
+    if (!isServerUp) {
+      return [];
+    }
+    const res = await fetch(`${apiBase}${tasksBase}`);
+    const data = await res.json();
+    return data;
+  };
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
@@ -60,6 +69,12 @@ export default function App() {
         onDelete={deleteTask}
         onToggle={toggleReminder}
       ></Tasks>
+      <div
+        className={`online-status hover ${
+          isServerUp ? 'bg-success' : 'bg-error'
+        }`}
+        title={`Server is ${isServerUp ? 'Online' : 'Offline'}`}
+      ></div>
     </div>
   );
 }

@@ -11,5 +11,8 @@ $fs-larger: 24px;
 
 $br-regular: 5px;
 
-$border-success: green;
-$border-error: red;
+$color-success: green;
+$color-error: red;
+
+$border-success: $color-success;
+$border-error: $color-error;
