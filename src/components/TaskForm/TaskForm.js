@@ -1,26 +1,33 @@
 import React, { useState } from 'react';
-import './AddTask.scss';
+import './TaskForm.scss';
 import Button from './../Button/Button';
 
-/**
- * @deprecated
- */
-const AddTask = ({ onCreate } = props) => {
-  const [text, setText] = useState('');
-  const [date, setDate] = useState('');
-  const [reminder, setReminder] = useState(false);
+const TaskForm = ({ task, onCreate, onUpdate } = props) => {
+  const [id] = useState(task?.id || '');
+  const [text, setText] = useState(task?.title || '');
+  const [date, setDate] = useState(task?.date || '');
+  const [reminder, setReminder] = useState(task?.reminder ?? false);
 
-  const handleAdd = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     if (!text || !date) {
       console.debug('Error');
       return;
     }
-    onCreate({
-      title: text,
-      date,
-      reminder,
-    });
+    if (id) {
+      onCreate({
+        title: text,
+        date,
+        reminder,
+      });
+    } else {
+      onUpdate({
+        id,
+        title: text,
+        date,
+        reminder,
+      });
+    }
     clearForm();
   };
 
@@ -72,7 +79,7 @@ const AddTask = ({ onCreate } = props) => {
           <Button
             text="Create"
             classlist={'btn-primary btn-full'}
-            onClick={handleAdd}
+            onClick={onSubmit}
           ></Button>
         </div>
       </form>
@@ -80,4 +87,4 @@ const AddTask = ({ onCreate } = props) => {
   );
 };
 
-export default AddTask;
+export default TaskForm;

@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.scss';
 import Tasks from './screens/Tasks/Tasks';
 import { uuid } from './utils/lib';
+import { Tasklist } from './mock-data/tasks';
 
 export default function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(Tasklist || []);
+
+  useEffect(() => {
+    console.log(tasks);
+  }, [tasks]);
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
@@ -14,10 +19,14 @@ export default function App() {
     setTasks([
       ...tasks,
       {
-        id: `tid${uuid()}`,
+        id: `tid-${uuid()}`,
         ...task,
       },
     ]);
+  };
+
+  const updateTask = (newTask) => {
+    setTasks(tasks.map((task) => (task.id === newTask.id ? newTask : task)));
   };
 
   const toggleReminder = (id) => {
@@ -39,6 +48,7 @@ export default function App() {
       <Tasks
         tasklist={tasks}
         onAdd={addTask}
+        onUpdate={updateTask}
         onDelete={deleteTask}
         onToggle={toggleReminder}
       ></Tasks>

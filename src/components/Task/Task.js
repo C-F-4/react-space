@@ -10,11 +10,12 @@ const Task = ({
   date,
   reminder,
   classlist,
+  onEdit,
   onDelete,
   onToggle,
 } = props) => {
   const handleEdit = () => {
-    console.log('title');
+    onEdit(id);
   };
 
   const handleDelete = () => {
@@ -33,14 +34,21 @@ const Task = ({
         }`}
       >
         <Header title={title} classlist={`h6 mb-5`}>
-          <Button
-            classlist="btn-slim btn-delete"
-            text={'Delete'}
-            onClick={handleDelete}
-          />
+          <div>
+            <Button
+              classlist="btn-slim btn-secondary mr-5"
+              text={'Edit'}
+              onClick={handleEdit}
+            />
+            <Button
+              classlist="btn-slim btn-delete"
+              text={'Delete'}
+              onClick={handleDelete}
+            />
+          </div>
         </Header>
         <p className={'hover m-0'} onDoubleClick={handleToggle}>
-          {date}
+          Remind on: {date}
         </p>
       </FrameBorder>
     </>

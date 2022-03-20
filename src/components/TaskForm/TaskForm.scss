@@ -1,0 +1,31 @@
+@import './../../variables';
+@import './../../common';
+
+.form-container {
+  width: 100%;
+
+  .form-group {
+    width: 100%;
+
+    label {
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: $fs-regular;
+
+      &[type='checkbox'] {
+        width: auto;
+      }
+
+      &[type='radio'] {
+        width: auto;
+      }
+    }
+  }
+}
