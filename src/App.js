@@ -28,36 +28,78 @@ export default function App() {
     return data;
   };
 
-  const deleteTask = (id) => {
+  const deleteTask = async (id) => {
+    if (!isServerUp) {
+      setTasks(tasks.filter((task) => task.id !== id));
+      return;
+    }
+    const res = await fetch(`${apiBase}${tasksBase}/${id}`, {
+      method: 'DELETE',
+    });
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  const addTask = (task) => {
+  const addTask = async (task) => {
+    const newTask = {
+      id: `tid-${uuid()}`,
+      ...task,
+    };
+    if (!isServerUp) {
+      setTasks([
+        ...tasks,
+        {
+          ...newTask,
+        },
+      ]);
+      return;
+    }
+    const res = await fetch(`${apiBase}${tasksBase}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newTask),
+    });
     setTasks([
       ...tasks,
       {
-        id: `tid-${uuid()}`,
-        ...task,
+        ...newTask,
       },
     ]);
   };
 
-  const updateTask = (newTask) => {
+  const updateTask = async (newTask) => {
+    if (!isServerUp) {
+      setTasks(tasks.map((task) => (task.id === newTask.id ? newTask : task)));
+      return;
+    }
+    const res = await fetch(`${apiBase}${tasksBase}/${newTask.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newTask),
+    });
     setTasks(tasks.map((task) => (task.id === newTask.id ? newTask : task)));
   };
 
-  const toggleReminder = (id) => {
-    console.debug('Tog');
-    setTasks(
-      tasks.map((task) =>
-        task.id === id
-          ? {
-              ...task,
-              reminder: !task.reminder,
-            }
-          : task
-      )
-    );
+  const toggleReminder = async (id) => {
+    if (!isServerUp) {
+      setTasks(
+        tasks.map((task) =>
+          task.id === id
+            ? {
+                ...task,
+                reminder: !task.reminder,
+              }
+            : task
+        )
+      );
+      return;
+    }
+    const task = tasks.find((task) => task.id === id);
+    task.reminder = !task.reminder;
+    await updateTask(task);
   };
 
   return (
