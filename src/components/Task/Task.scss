@@ -1,2 +1,7 @@
 @import './../../variables';
 @import './../../common';
+
+.editing {
+  pointer-events: none;
+  cursor: not-allowed;
+}

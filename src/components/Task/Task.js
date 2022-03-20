@@ -5,15 +5,16 @@ import Header from './../Header/Header';
 import Button from './../Button/Button';
 
 const Task = ({
-  id,
-  title,
-  date,
-  reminder,
+  task,
   classlist,
   onEdit,
   onDelete,
   onToggle,
 } = props) => {
+  const {id,
+  title,
+  date,
+  reminder} = task;
   const handleEdit = () => {
     onEdit(id);
   };

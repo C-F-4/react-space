@@ -77,7 +77,7 @@ const TaskForm = ({ task, onCreate, onUpdate } = props) => {
         </div>
         <div className="form-btn-group">
           <Button
-            text="Create"
+            text={task.id ? 'Update' : 'Create'}
             classlist={'btn-primary btn-full'}
             onClick={onSubmit}
           ></Button>

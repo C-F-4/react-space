@@ -41,7 +41,7 @@ const Tasks = ({ tasklist, onAdd, onUpdate, onDelete, onToggle } = props) => {
         {showAddForm && (
           <div className={`mt-10`}>
             <TaskForm
-              task={ selectedTask }
+              task={selectedTask}
               onCreate={onAdd}
               onUpdate={onUpdate}
             />
@@ -51,12 +51,11 @@ const Tasks = ({ tasklist, onAdd, onUpdate, onDelete, onToggle } = props) => {
           {tasks?.length ? (
             tasks?.map((task) => (
               <Task
-                id={task.id}
-                title={task.title}
-                date={task.date}
-                reminder={task.reminder}
+                task={task}
                 key={task.id}
-                classlist={'mt-10'}
+                classlist={`mt-10 ${
+                  selectedTask.id === task.id ? 'editing' : ''
+                }`}
                 onEdit={() => {
                   editTask(task.id);
                 }}
