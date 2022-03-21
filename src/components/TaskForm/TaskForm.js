@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './TaskForm.scss';
 import Button from './../Button/Button';
 
 const TaskForm = ({ task, onCreate, onUpdate } = props) => {
-  const [id] = useState(task?.id || '');
+  const [id, setId] = useState(task?.id || '');
   const [text, setText] = useState(task?.title || '');
   const [date, setDate] = useState(task?.date || '');
   const [reminder, setReminder] = useState(task?.reminder ?? false);
+
+  useEffect(() => {
+    setId(task.id);
+    setText(task.title);
+    setDate(task.date);
+    setReminder(task.reminder);
+    console.log('Triggered effect');
+  }, [task]);
 
   const onSubmit = (e) => {
     e.preventDefault();
